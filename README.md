@@ -7,6 +7,7 @@
 
 ## 📖 Table of Contents
 
+- [What your finished setup will look like](#-what-your-finished-setup-will-look-like)
 - [Why this guide?](#-why-this-guide)
 - [What you need](#-what-you-need)
 - [Part 1 — Download the Arch ISO](#part-1--download-the-arch-iso)
@@ -21,6 +22,54 @@
 - [Troubleshooting](#-troubleshooting)
 - [FAQ](#-faq)
 - [Useful resources](#-useful-resources)
+
+---
+
+## 🖥️ What your finished setup will look like
+
+Follow this guide and you'll end up with a clean, modern desktop that looks roughly like this — Caelestia's glassy top bar, a tiling/floating Hyprland setup, and colors auto-generated from **your** wallpaper:
+
+```
+┌────────────────────────────────────────────────────────────┐
+│ 1  2  3  4  5      arch-pc   vol 80%   21:47   ⏻           │
+│                                                            │
+│   ╭─ kitty ──────────────────────────────────╮             │
+│   │ ❯ fastfetch                              │             │
+│   │                                          │             │
+│   │    OS      Arch Linux x86_64             │             │
+│   │    WM      Hyprland (Wayland)            │             │
+│   │    Theme   Caelestia                     │             │
+│   │    CPU     AMD Ryzen 7 7800X3D           │             │
+│   │    GPU     NVIDIA RTX 4070               │             │
+│   │    Memory  2.1 GiB / 32 GiB              │             │
+│   │                                          │             │
+│   ╰──────────────────────────────────────────╯             │
+│                                                            │
+│        ╭────────────────────────╮                          │
+│        │ [ok] System updated!   │                          │
+│        │ 813 packages upgraded  │                          │
+│        ╰────────────────────────╯                          │
+│                                                            │
+│  super+q terminal · super+d launcher · super+v float       │
+└────────────────────────────────────────────────────────────┘
+```
+
+**A day in the life with your new system:**
+
+- ⏻ **Power on** → systemd-boot → themed SDDM login screen
+- 🌅 **Desktop fades in** — your wallpaper, soft shadows, animated window transitions, and the Caelestia bar on top (workspaces, media, notifications, clock)
+- ⌨️ `Super + D` → a blurred dashboard with weather, calendar and media controls
+- 🖼️ Run `caelestia wallpaper set ~/Pictures/Wallpapers/new.jpg` → the **entire UI re-colors itself** to match the new image instantly
+- 📦 `sudo pacman -Syu` in kitty → a toast pops up: *"System updated"* ✅
+- 🔒 Walk away → `Super + L` locks with hyprlock: blurred wallpaper + big clock
+
+> [!TIP]
+> **Maintainer note:** to show *real* screenshots instead of the sketch above, save them as `.github/assets/desktop.png`, `.github/assets/launcher.png` etc. in this repo, then un-comment these lines:
+>
+> <!--
+> ![Desktop](.github/assets/desktop.png)
+> ![Launcher](.github/assets/launcher.png)
+> -->
 
 ---
 
