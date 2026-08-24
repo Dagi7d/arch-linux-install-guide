@@ -27,7 +27,17 @@
 
 ## 🖥️ What your finished setup will look like
 
-Follow this guide and you'll end up with a clean, modern desktop that looks roughly like this — Caelestia's glassy top bar, a tiling/floating Hyprland setup, and colors auto-generated from **your** wallpaper:
+Follow this guide and you'll end up with a clean, modern desktop — Caelestia's glassy top bar, a tiling/floating Hyprland setup, and colors auto-generated from **your** wallpaper.
+
+Don't take our word for it: here is a **real, live screenshot** of exactly this setup, captured on the very machine this guide was written on:
+
+<p align="center">
+  <img src=".github/assets/desktop.png" alt="Real Arch Linux desktop running Hyprland + Caelestia" width="90%" />
+</p>
+
+> 📸 *Hyprland 0.54 + Caelestia shell — genuine screenshot by [@Dagi7d](https://github.com/Dagi7d), not a stock render.*
+
+The same idea as a quick schematic:
 
 ```
 ┌────────────────────────────────────────────────────────────┐
@@ -62,14 +72,6 @@ Follow this guide and you'll end up with a clean, modern desktop that looks roug
 - 🖼️ Run `caelestia wallpaper set ~/Pictures/Wallpapers/new.jpg` → the **entire UI re-colors itself** to match the new image instantly
 - 📦 `sudo pacman -Syu` in kitty → a toast pops up: *"System updated"* ✅
 - 🔒 Walk away → `Super + L` locks with hyprlock: blurred wallpaper + big clock
-
-> [!TIP]
-> **Maintainer note:** to show *real* screenshots instead of the sketch above, save them as `.github/assets/desktop.png`, `.github/assets/launcher.png` etc. in this repo, then un-comment these lines:
->
-> <!--
-> ![Desktop](.github/assets/desktop.png)
-> ![Launcher](.github/assets/launcher.png)
-> -->
 
 ---
 
@@ -432,6 +434,12 @@ caelestia wallpaper set ~/Pictures/Wallpapers/mountain.jpg
 ```
 
 Drop a few images into `~/Pictures/Wallpapers/`, run that command again whenever you feel like a new vibe — the bar, launcher, borders and terminal accents all follow.
+
+**Real examples** — three wallpapers from [@Dagi7d](https://github.com/Dagi7d)'s own collection; setting any of them re-colors the entire UI in about a second:
+
+| `hyprland.jpg` | `moonlight.jpg` | `tron-ares.jpg` |
+|:---:|:---:|:---:|
+| ![Hyprland wallpaper](.github/assets/wallpaper-hyprland.jpg) | ![Moonlight wallpaper](.github/assets/wallpaper-moonlight.jpg) | ![Tron Ares wallpaper](.github/assets/wallpaper-tron-ares.jpg) |
 
 ### 9.4 — Learn your way around
 
