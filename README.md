@@ -17,6 +17,7 @@
 - [Part 6 — Run `archinstall` ✨](#part-6--run-archinstall-)
 - [Part 7 — Reboot into your new Arch system](#part-7--reboot-into-your-new-arch-system)
 - [Part 8 — Post-install setup (do these first)](#part-8--post-install-setup-do-these-first)
+- [Part 9 — Bonus: Hyprland + Caelestia 🌊](#part-9--bonus-hyprland--caelestia-)
 - [Troubleshooting](#-troubleshooting)
 - [FAQ](#-faq)
 - [Useful resources](#-useful-resources)
@@ -310,6 +311,93 @@ Enjoy your fresh, minimal, blazing-fast system. 🚀
 
 ---
 
+## Part 9 — Bonus: Hyprland + Caelestia 🌊
+
+Want something more striking than a traditional desktop? **[Hyprland](https://wiki.hypr.land/)** is an eye-candy **tiling** Wayland compositor with smooth animations, and **[Caelestia](https://github.com/caelestia-dots/shell)** is one of the most popular ready-made "rices" for it — status bar, app launcher, notifications, and dynamic color theming, all pre-configured to look stunning out of the box.
+
+> [!TIP]
+> Do Parts 1–8 first — you need a working Arch install, `yay` (Part 8, step 4), and ideally the KDE/GNOME login screen from Part 6 to launch sessions easily.
+
+### 9.1 — Install Hyprland
+
+Everything below comes from Arch's official repositories:
+
+```bash
+sudo pacman -S --needed hyprland xdg-desktop-portal-hyprland \
+  kitty wofi mako waybar \
+  hyprpaper hyprlock hypridle \
+  qt5-wayland qt6-wayland polkit-gnome \
+  brightnessctl playerctl grim slurp wl-clipboard
+```
+
+| Package | What it does |
+|---|---|
+| `xdg-desktop-portal-hyprland` | Screen sharing, file picker, screenshots |
+| `kitty` / `wofi` / `mako` | Terminal / app launcher / notifications (Hyprland's defaults) |
+| `waybar` | Status bar (Caelestia ships its own shell later — nice as a fallback) |
+| `hyprpaper` / `hyprlock` / `hypridle` | Wallpapers / lock screen / idle daemon |
+| `qt5-wayland` + `qt6-wayland` + `polkit-gnome` | Make Qt apps & password prompts work properly |
+| `brightnessctl` `playerctl` `grim` `slurp` `wl-clipboard` | Brightness keys, media keys, screenshots, clipboard |
+
+**Launch it:** log out of your desktop → pick **Hyprland** from the SDDM session menu. (No login manager? Log into a TTY and type `Hyprland`.)
+
+On first launch Hyprland creates `~/.config/hypr/hyprland.conf` and shows its welcome tile. The default keybinds:
+
+| Keys | Action |
+|---|---|
+| `Super + Q` | Open terminal |
+| `Super + C` | Close window |
+| `Super + M` | Exit Hyprland |
+| `Super + ←↑↓→` | Move focus between windows |
+| `Super + V` | Toggle window floating |
+| `Super + left/right-click drag` | Move / resize windows |
+
+> [!NOTE]
+> **NVIDIA GPU?** Read <https://wiki.hypr.land/NVIDIA/> before troubleshooting — you may need a couple of `env = ...` lines in `hyprland.conf` (e.g. `GBM_BACKEND=nvidia`) and the `nvidia-open` driver modules.
+
+### 9.2 — Install Caelestia
+
+Caelestia lives in the AUR, so this is easy with `yay`:
+
+```bash
+# Shell (bar, launcher, dashboard) + CLI (theming & wallpaper control)
+yay -S --needed caelestia-shell-git caelestia-cli-git
+```
+
+*(If package names have changed by the time you read this, find the current ones with `yay -Ssa caelestia`.)*
+
+Then tell Hyprland to start the Caelestia shell at login:
+
+```bash
+echo "exec-once = qs -c caelestia" >> ~/.config/hypr/hyprland.conf
+```
+
+Log out and back in (or reboot). You'll be greeted by the Caelestia bar and dashboard. 🌊
+
+### 9.3 — Theming: let your wallpaper paint the whole UI
+
+Caelestia generates matching colors for everything (via `matugen`) from your wallpaper:
+
+```bash
+caelestia wallpaper set ~/Pictures/Wallpapers/mountain.jpg
+```
+
+Drop a few images into `~/Pictures/Wallpapers/`, run that command again whenever you feel like a new vibe — the bar, launcher, borders and terminal accents all follow.
+
+### 9.4 — Learn your way around
+
+- Keybinds and tweaks live in `~/.config/hypr/hyprland.conf`
+- Caelestia settings: explore `caelestia --help`, or right-click the bar
+- Official docs for anything not covered here:
+  - 🪟 Hyprland wiki → <https://wiki.hypr.land/>
+  - 🐚 Caelestia shell → <https://github.com/caelestia-dots/shell>
+  - 🛠️ Caelestia CLI → <https://github.com/caelestia-dots/cli>
+
+> [!IMPORTANT]
+> Caelestia is actively developed and details can change quickly. This section covers the standard install path, but if a step differs, the project's own README/wiki above always wins.
+
+---
+
 ## 🛠️ Troubleshooting
 
 <details>
@@ -401,6 +489,8 @@ Yes — `archinstall` is developed by the Arch team and ships **inside** the off
 | 📰 Arch news (check before updating) | <https://archlinux.org/news/> |
 | 💬 Arch forums | <https://bbs.archlinux.org/> |
 | 🤝 r/archlinux | <https://www.reddit.com/r/archlinux/> |
+| 🪟 Hyprland wiki | <https://wiki.hypr.land/> |
+| 🌊 Caelestia shell | <https://github.com/caelestia-dots/shell> |
 
 ---
 
